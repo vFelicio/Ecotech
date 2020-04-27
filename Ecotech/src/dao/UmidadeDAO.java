@@ -13,7 +13,7 @@ public class UmidadeDAO {
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
-			stm.setString(1, umidade.getNivel());
+			stm.setDouble(1, umidade.getNivel());
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
@@ -35,7 +35,7 @@ public class UmidadeDAO {
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
-			stm.setString(1, umidade.getNivel());
+			stm.setDouble(1, umidade.getNivel());
 
 			stm.setInt(4, umidade.getId());
 			stm.execute();
@@ -66,11 +66,11 @@ public class UmidadeDAO {
 			stm.setInt(1, umidade.getId());
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
-					umidade.setNivel(rs.getString("nivel"));
+					umidade.setNivel(rs.getDouble("nivel"));
 
 				} else {
 					umidade.setId(-1);
-					umidade.setNivel(null);
+					umidade.setNivel(Double.NaN);
 
 				}
 			} catch (SQLException e) {

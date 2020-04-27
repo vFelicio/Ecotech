@@ -32,11 +32,11 @@ public class UmidadeTest {
 		System.out.println("setup");
 		umidade = new Umidade();
 		umidade.setId(id);
-		umidade.setNivel("Batista Cepelos");
+		umidade.setNivel(2.6);
 
 		copia = new Umidade();
 		copia.setId(id);
-		copia.setNivel("Batista Cepelos");
+		copia.setNivel(2.6);
 
 		clienteService = new UmidadeService();
 		System.out.println(umidade);
@@ -50,7 +50,7 @@ public class UmidadeTest {
 		//para funcionar o cliente 1 deve ter sido carregado no banco por fora
 		Umidade fixture = new Umidade();
 		fixture.setId(1);
-		fixture.setNivel("Carlos Drummond de Andrade");
+		fixture.setNivel(2.6);
 		
 		UmidadeService novoService = new UmidadeService();
 		Umidade novo = novoService.carregar(1);
@@ -77,7 +77,7 @@ public class UmidadeTest {
 	public void test03Excluir() {
 		System.out.println("excluir");
 		copia.setId(-1);
-		copia.setNivel(null);
+		copia.setNivel(Double.NaN);
 		clienteService.excluir(id);
 		umidade = clienteService.carregar(id);
 		assertEquals("testa exclusao", umidade, copia);

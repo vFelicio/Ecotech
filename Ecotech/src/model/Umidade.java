@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Umidade implements Serializable {
     private static final long serialVersionUID = 1L;
 	private int id;
-	private String nivel;
+	private double nivel;
 
 	public Umidade() {
 	}
@@ -18,11 +18,11 @@ public class Umidade implements Serializable {
 		this.id = id;
 	}
 
-	public String getNivel() {
+	public double getNivel() {
 		return nivel;
 	}
 
-	public void setNivel(String nivel) {
+	public void setNivel(double nivel) {
 		this.nivel = nivel;
 	}
 
@@ -43,10 +43,10 @@ public class Umidade implements Serializable {
 		Umidade other = (Umidade) obj;
 		if (id != other.id)
 			return false;
-		if (nivel == null) {
-			if (other.nivel != null)
+		if (nivel == 0.0) {
+			if (other.nivel != 0.0)
 				return false;
-		} else if (!nivel.equals(other.nivel))
+		} else if (nivel != other.nivel)
 			return false;
 		return true;
 	}

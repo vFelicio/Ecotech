@@ -21,7 +21,7 @@
             <h3 class="page-header">Visualizar Umidade #${umidade.id}</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <p><strong>Nome</strong>
+                    <p><strong>Nivel</strong>
                     </p>
                     <p>
                         ${umidade.nivel}

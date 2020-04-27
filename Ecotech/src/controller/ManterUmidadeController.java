@@ -30,15 +30,14 @@ public class ManterUmidadeController extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pNivel = request.getParameter("nivel");
+        double pNivel = Double.parseDouble(request.getParameter("nivel"));
+        
 
         
         //instanciar o javabean
         Umidade umidade = new Umidade();
         umidade.setNivel(pNivel);
- 
-        System.out.println(umidade);
-        
+       
         //instanciar o service
         UmidadeService cs = new UmidadeService();
         cs.criar(umidade);

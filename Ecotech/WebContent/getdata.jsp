@@ -19,20 +19,27 @@
            JSONObject empObj = null;
 
         while (rs.next()) {
-            String nivel = rs.getString("nivel");
-         
             int id = rs.getInt("id");
-
+            double nivel = rs.getDouble("nivel");
+            
             empObj = new JSONObject();
 
+            empObj.put("id", id);
             empObj.put("nivel", nivel);
           
-            empObj.put("id", id);
+            
+            
+         
 
             empdetails.add(empObj);
+            
+           
         }
+      //System.out.println(empdetails);
         responseObj.put("empdetails", empdetails);
-    out.print(responseObj.toString());
+        out.print(responseObj.toString());
+    
+    
     }
     catch(Exception e){
         e.printStackTrace();
